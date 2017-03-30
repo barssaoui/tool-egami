@@ -108,22 +108,22 @@ class EGSoftCamInfo(Screen):
         Screen.__init__(self, session)
         self.menu = args
         list = []
-        if pathExists('/usr/emu_scripts/'):
-            softcams = listdir('/usr/emu_scripts/')
+        if pathExists('/usr/camscript/'):
+            softcams = listdir('/usr/camscript/')
             for softcam in softcams:
                 if 'cccam' in softcam.lower():
                     list.append((_('CCcam Info'), '1'))
                     break
 
-        if pathExists('/usr/emu_scripts/'):
-            softcams = listdir('/usr/emu_scripts/')
+        if pathExists('/usr/camscript/'):
+            softcams = listdir('/usr/camscript/')
             for softcam in softcams:
                 if 'oscam' in softcam.lower():
                     list.append((_('OScam Info'), '2'))
                     break
 
-        if pathExists('/usr/emu_scripts/'):
-            softcams = listdir('/usr/emu_scripts/')
+        if pathExists('/usr/camscript/'):
+            softcams = listdir('/usr/camscript/')
             for softcam in softcams:
                 if 'wicardd' in softcam.lower():
                     list.append((_('Wicardd Info'), '3'))
@@ -178,16 +178,16 @@ class EmuManager(Screen):
     def createConfig(self):
         self.camnames = {}
         self.softcamchoices = []
-        cams = listdir('/usr/emu_scripts')
+        cams = listdir('/usr/camscript')
         for fil in cams:
             if fil.find('Ncam_') != -1 or fil.find('EGcam_') != -1:
-                f = open('/usr/emu_scripts/' + fil, 'r')
+                f = open('/usr/camscript/' + fil, 'r')
                 for line in f.readlines():
                     line = line.strip()
                     if line.find('CAMNAME=') != -1:
                         name = line[9:-1]
                         self.softcamchoices.append(name)
-                        self.camnames[name] = '/usr/emu_scripts/' + fil
+                        self.camnames[name] = '/usr/camscript/' + fil
 
                 f.close()
 
@@ -223,7 +223,7 @@ class EmuManager(Screen):
         self['ecminfo'] = Label(readEcmFile())
 
     def createSetup2(self):
-        self.defaultcam = '/usr/emu_scripts/EGcam_Ci.sh'
+        self.defaultcam = '/usr/camscript/EGcam_Ci.sh'
         if fileExists('/etc/EGCamConf'):
             f = open('/etc/EGCamConf', 'r')
             for line in f.readlines():

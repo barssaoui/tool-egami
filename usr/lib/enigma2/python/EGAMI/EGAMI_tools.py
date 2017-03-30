@@ -17,7 +17,7 @@ def catalogXmlUrl():
         url = 'http://sodo13.zz.mu/plugins/catalog_enigma2_latest.xml'
     else:
         url = 'http://enigma-spark.com/egami/catalog_enigma2.xml'
-return url
+    return url
 
 
 def getStbArch():
@@ -96,7 +96,7 @@ def sendCmdtoEGEmuD(cmd):
         s.close()
     except socket.error:
         print '[EG-EMU MANAGER] could not communicate with socket, lets try to start emud'
-        cmd = '/bin/emud'
+        cmd = '/usr/bin/sodo'
         runBackCmd(cmd)
         if s is not None:
             s.close()

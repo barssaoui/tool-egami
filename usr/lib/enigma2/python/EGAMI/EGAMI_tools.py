@@ -51,7 +51,7 @@ def checkkernel():
 
 def readEmuName():
     try:
-        defaultcam = '/usr/emu_scripts/Ncam_Ci.sh'
+        defaultcam = '/usr/camscript/EGcam_Ci.sh'
         if fileExists('/etc/EGCamConf'):
             f = open('/etc/EGCamConf', 'r')
             for line in f.readlines():

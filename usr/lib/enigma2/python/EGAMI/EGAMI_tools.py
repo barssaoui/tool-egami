@@ -13,7 +13,7 @@ import socket
 
 
 def catalogXmlUrl():
-    if about.getImageVersionString().startswith('7.2'):
+    if about.getImageVersionString().startswith('8.0'):
         url = 'http://sodo13.zz.mu/plugins/catalog_enigma2_latest.xml'
     else:
         url = 'http://enigma-spark.com/egami/catalog_enigma2.xml'
